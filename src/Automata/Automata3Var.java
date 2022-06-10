@@ -54,6 +54,7 @@ public class Automata3Var {
          System.out.println(verificacion(alfabeto, "fds"));
          System.out.println(verificacion(alfabeto, ""));
          System.out.println(verificacion(alfabeto, "aaabbbcccccc"));
+         //nada
 
     }
     
