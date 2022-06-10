@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  *
  * @author op7in
  */
-public class Interfaz extends javax.swing.JFrame {
+public class Interfaz_1 extends javax.swing.JFrame {
 
     /**
      * Creates new form Interfaz
@@ -21,7 +21,7 @@ public class Interfaz extends javax.swing.JFrame {
     private String[] palabras;
     private AutomataPila ap;
 
-    public Interfaz() {
+    public Interfaz_1() {
 
         initComponents();
         iniciarComponentes();
@@ -106,11 +106,10 @@ public class Interfaz extends javax.swing.JFrame {
         w = new javax.swing.JLabel();
         y = new javax.swing.JLabel();
         x = new javax.swing.JLabel();
-        z = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         alfabetoBtn = new javax.swing.JButton();
         cargarPalabrasBtn = new javax.swing.JButton();
         inicio = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
@@ -193,22 +192,14 @@ public class Interfaz extends javax.swing.JFrame {
         w.setText("w");
         jPanel2.add(w, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 30, 40));
 
-        y.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        y.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         y.setText(" y");
-        jPanel2.add(y, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, 40, 40));
+        jPanel2.add(y, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 30, 40));
         y.getAccessibleContext().setAccessibleName("X");
 
         x.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         x.setText(" x");
-        jPanel2.add(x, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 30, 40));
-
-        z.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        z.setText("z");
-        jPanel2.add(z, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 20, 40));
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/teoria1/WhatsApp Image 2022-06-04 at 4.17.32 PM.jpeg"))); // NOI18N
-        jLabel8.setMaximumSize(new java.awt.Dimension(100, 72));
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 390, 60));
+        jPanel2.add(x, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 30, 40));
 
         alfabetoBtn.setText("Validar alfabeto");
         alfabetoBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -233,6 +224,9 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
         jPanel2.add(inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 120, 30));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/teoria1/lenguaje2_0.png"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 520));
 
@@ -282,7 +276,7 @@ public class Interfaz extends javax.swing.JFrame {
             w.setText(String.valueOf(sigma[0]));
             x.setText(String.valueOf(sigma[1]));
             y.setText(String.valueOf(sigma[2]));
-            z.setText(String.valueOf(sigma[3]));
+            
         }
     }//GEN-LAST:event_alfabetoBtnActionPerformed
 
@@ -338,11 +332,11 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton cleanBtn;
     private javax.swing.JButton inicio;
     private javax.swing.JTextArea inputPalabras;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel jPanel2;
@@ -353,6 +347,5 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel w;
     private javax.swing.JLabel x;
     private javax.swing.JLabel y;
-    private javax.swing.JLabel z;
     // End of variables declaration//GEN-END:variables
 }

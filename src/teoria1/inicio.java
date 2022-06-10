@@ -5,6 +5,8 @@
  */
 package teoria1;
 
+import java.awt.BorderLayout;
+
 /**
  *
  * @author op7in
@@ -16,6 +18,7 @@ public class inicio extends javax.swing.JFrame {
      */
     public inicio() {
         initComponents();
+
     }
 
     /**
@@ -37,7 +40,9 @@ public class inicio extends javax.swing.JFrame {
         Lenguaje4 = new javax.swing.JButton();
         boton4 = new javax.swing.JPanel();
         Teoria = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        content = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -54,7 +59,7 @@ public class inicio extends javax.swing.JFrame {
         Legunaje1.setBackground(new java.awt.Color(85, 55, 118));
         Legunaje1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Legunaje1.setForeground(new java.awt.Color(255, 255, 255));
-        Legunaje1.setText("Lenguaje1");
+        Legunaje1.setText("ab");
         Legunaje1.setToolTipText("");
         Legunaje1.setContentAreaFilled(false);
         Legunaje1.addActionListener(new java.awt.event.ActionListener() {
@@ -64,14 +69,14 @@ public class inicio extends javax.swing.JFrame {
         });
         boton1.add(Legunaje1, java.awt.BorderLayout.CENTER);
 
-        slidepane.add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 230, 70));
+        slidepane.add(boton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 230, 60));
 
         boton2.setBackground(new java.awt.Color(102, 0, 102));
         boton2.setLayout(new java.awt.BorderLayout());
 
         Lenguaje2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Lenguaje2.setForeground(new java.awt.Color(255, 255, 255));
-        Lenguaje2.setText("Lenguaje2");
+        Lenguaje2.setText("abc");
         Lenguaje2.setContentAreaFilled(false);
         Lenguaje2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,7 +92,7 @@ public class inicio extends javax.swing.JFrame {
 
         Lenguaje4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Lenguaje4.setForeground(new java.awt.Color(255, 255, 255));
-        Lenguaje4.setText("Lenguaje3");
+        Lenguaje4.setText("abcd");
         Lenguaje4.setContentAreaFilled(false);
         Lenguaje4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,14 +101,14 @@ public class inicio extends javax.swing.JFrame {
         });
         boton3.add(Lenguaje4, java.awt.BorderLayout.CENTER);
 
-        slidepane.add(boton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 230, 60));
+        slidepane.add(boton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 230, 60));
 
         boton4.setBackground(new java.awt.Color(102, 0, 102));
         boton4.setLayout(new java.awt.BorderLayout());
 
         Teoria.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Teoria.setForeground(new java.awt.Color(255, 255, 255));
-        Teoria.setText("Teroria");
+        Teoria.setText("Teoría");
         Teoria.setContentAreaFilled(false);
         Teoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,41 +117,58 @@ public class inicio extends javax.swing.JFrame {
         });
         boton4.add(Teoria, java.awt.BorderLayout.CENTER);
 
-        slidepane.add(boton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 230, 60));
+        slidepane.add(boton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 230, 60));
 
-        bg.add(slidepane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 490));
+        bg.add(slidepane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 520));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        content.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/teoria1/manual.png"))); // NOI18N
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/teoria1/numeros.png"))); // NOI18N
+
+        javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
+        content.setLayout(contentLayout);
+        contentLayout.setHorizontalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel1)
+                .addContainerGap(28, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(157, 157, 157))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        contentLayout.setVerticalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(contentLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(jLabel2)
+                .addGap(61, 61, 61)
+                .addComponent(jLabel1)
+                .addContainerGap(152, Short.MAX_VALUE))
         );
 
-        bg.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 550, 490));
+        bg.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 600, 520));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void Legunaje1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Legunaje1ActionPerformed
-        // TODO add your handling code here:
+        
+                
     }//GEN-LAST:event_Legunaje1ActionPerformed
 
     private void TeoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeoriaActionPerformed
@@ -154,11 +176,15 @@ public class inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_TeoriaActionPerformed
 
     private void Lenguaje2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lenguaje2ActionPerformed
-        // TODO add your handling code here:
+        Interfaz_1 in2 = new Interfaz_1();
+        in2.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_Lenguaje2ActionPerformed
 
     private void Lenguaje4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lenguaje4ActionPerformed
-        // TODO add your handling code here:
+        Interfaz in = new Interfaz();
+        in.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_Lenguaje4ActionPerformed
 
     /**
@@ -206,7 +232,9 @@ public class inicio extends javax.swing.JFrame {
     public javax.swing.JPanel boton2;
     public javax.swing.JPanel boton3;
     public javax.swing.JPanel boton4;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel content;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel slidepane;
     // End of variables declaration//GEN-END:variables
 }
