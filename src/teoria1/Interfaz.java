@@ -31,7 +31,6 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void iniciarComponentes() {
         alfabeto.setText("");
-        validarPalabrasBtn.setEnabled(false);
         cargarPalabrasBtn.setEnabled(false);
         inputPalabras.setEnabled(false);
         outputValidacion.setEnabled(false);
@@ -41,15 +40,18 @@ public class Interfaz extends javax.swing.JFrame {
    
         alfabeto = alfabeto.replace(" ", "");
         String[] caracteres = alfabeto.split(",");
-        
-        return caracteres.length==4 && !seRepitenCaracteres(caracteres);
+        System.out.println(alfabeto);
+        for (int i = 0; i < caracteres.length; i++) {
+            System.out.println(caracteres[i]);
+        }
+        return alfabeto.length()==7 && !seRepitenCaracteres(caracteres);
     }
 
     private boolean seRepitenCaracteres(String[] caracteres){
         for (int i = 0; i < caracteres.length; i++) {
             String car = caracteres[i];
             for (int j = i+1; j < caracteres.length; j++) {
-                if (car == null ? caracteres[i] == null : car.equals(caracteres[j])) {
+                if (car == null ? caracteres[i] == null : car.equals(caracteres[j]) || caracteres[i].length()>1) {
                     return true;
                 }
             }
@@ -59,15 +61,12 @@ public class Interfaz extends javax.swing.JFrame {
     private void obtenerAlfabeto() {
         String alfabet = this.alfabeto.getText();
         alfabet = alfabet.replace(",", "");
+        alfabet = alfabet.replace(" ", "");
         sigma = alfabet.toCharArray();
     }
 
     private void obtenerPalabrasAValidar() {
-    
-        if (comprobarEntradaAlfabeto(alfabeto.getText())) {
-            JOptionPane.showMessageDialog(null, "¡Ingrese una/s palabras para validar!", "¡No hay palabras para validar!", JOptionPane.ERROR_MESSAGE);
-            inputPalabras.setEnabled(true);
-        } else {
+   
             palabras = inputPalabras.getText().split("\n");
 
             /*Quitamos los espacios de entrada y sallida */
@@ -77,8 +76,8 @@ public class Interfaz extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(null, "¡Palabras cargadas con éxito!", "¡A validar!", JOptionPane.INFORMATION_MESSAGE);
             outputValidacion.setEnabled(true);
-            validarPalabrasBtn.setEnabled(true);
-        }
+
+    
 
     }
 
@@ -125,7 +124,6 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         alfabetoBtn = new javax.swing.JButton();
         cleanBtn = new javax.swing.JButton();
-        validarPalabrasBtn = new javax.swing.JButton();
         cargarPalabrasBtn = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
@@ -303,21 +301,13 @@ public class Interfaz extends javax.swing.JFrame {
         });
         jPanel2.add(cleanBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 600, 150, 40));
 
-        validarPalabrasBtn.setText("Validar palabras");
-        validarPalabrasBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                validarPalabrasBtnActionPerformed(evt);
-            }
-        });
-        jPanel2.add(validarPalabrasBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 490, 150, 40));
-
-        cargarPalabrasBtn.setText("Cargar palabras");
+        cargarPalabrasBtn.setText("Validar palabras");
         cargarPalabrasBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cargarPalabrasBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(cargarPalabrasBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 150, 40));
+        jPanel2.add(cargarPalabrasBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 430, 150, 40));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 590, 650));
 
@@ -368,12 +358,13 @@ public class Interfaz extends javax.swing.JFrame {
         outputValidacion.setText("");
         outputValidacion.setEnabled(false);
         
-        validarPalabrasBtn.setEnabled(false);
+
         cargarPalabrasBtn.setEnabled(false);
     }//GEN-LAST:event_cleanBtnActionPerformed
 
-    private void validarPalabrasBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validarPalabrasBtnActionPerformed
+    private void cargarPalabrasBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarPalabrasBtnActionPerformed
         // TODO add your handling code here:
+        obtenerPalabrasAValidar();
         boolean palabraValida = false;
         String mensaje = "";
         for (byte i = 0; i < palabras.length; i++) {
@@ -384,12 +375,6 @@ public class Interfaz extends javax.swing.JFrame {
             
             outputValidacion.setText(outputValidacion.getText() + mensaje);
         }
-    }//GEN-LAST:event_validarPalabrasBtnActionPerformed
-
-    private void cargarPalabrasBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarPalabrasBtnActionPerformed
-        // TODO add your handling code here:
-        inputPalabras.setEnabled(false);
-        obtenerPalabrasAValidar();
     }//GEN-LAST:event_cargarPalabrasBtnActionPerformed
 
     /**
@@ -461,7 +446,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea outputValidacion;
-    private javax.swing.JButton validarPalabrasBtn;
     private javax.swing.JLabel w;
     private javax.swing.JLabel x;
     private javax.swing.JLabel y;
