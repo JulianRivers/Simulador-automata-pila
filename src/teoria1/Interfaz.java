@@ -38,12 +38,24 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     private boolean comprobarEntradaAlfabeto(String alfabeto) {
+   
         alfabeto = alfabeto.replace(" ", "");
         String[] caracteres = alfabeto.split(",");
-        return caracteres.length==4;
+        
+        return caracteres.length==4 && !seRepitenCaracteres(caracteres);
     }
 
-
+    private boolean seRepitenCaracteres(String[] caracteres){
+        for (int i = 0; i < caracteres.length; i++) {
+            String car = caracteres[i];
+            for (int j = i+1; j < caracteres.length; j++) {
+                if (car == null ? caracteres[i] == null : car.equals(caracteres[j])) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     private void obtenerAlfabeto() {
         String alfabet = this.alfabeto.getText();
         alfabet = alfabet.replace(",", "");
