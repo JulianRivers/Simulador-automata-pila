@@ -9,7 +9,7 @@ import java.util.Stack;
  */
 public class Automata3Var {
     
-     public static boolean verificacion(char[] alfabeto, String x) {
+     public  boolean verificacion(char[] alfabeto, String x) {
         boolean acepta = false;
 
         Stack<Character> pila = new Stack<>();
@@ -45,17 +45,4 @@ public class Automata3Var {
         return acepta;
 
     }
-     
-     public static void main(String[] args) {
-        char[] alfabeto ={'a','b','c'};
-         System.out.println(verificacion(alfabeto, "aaabbccccc"));
-         System.out.println(verificacion(alfabeto, "aa"));
-         System.out.println(verificacion(alfabeto, "b"));
-         System.out.println(verificacion(alfabeto, "fds"));
-         System.out.println(verificacion(alfabeto, ""));
-         System.out.println(verificacion(alfabeto, "aaabbbcccccc"));
-         //nada
-
-    }
-    
 }

@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package teoria1;
+package view;
 
 import java.awt.BorderLayout;
+import java.awt.Desktop;
+import java.net.URI;
 
 /**
  *
@@ -18,7 +20,8 @@ public class inicio extends javax.swing.JFrame {
      */
     public inicio() {
         initComponents();
-
+        this.setTitle("S_A_P_A");
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -42,6 +45,7 @@ public class inicio extends javax.swing.JFrame {
         Teoria = new javax.swing.JButton();
         content = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,7 +63,7 @@ public class inicio extends javax.swing.JFrame {
         Legunaje1.setBackground(new java.awt.Color(85, 55, 118));
         Legunaje1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Legunaje1.setForeground(new java.awt.Color(255, 255, 255));
-        Legunaje1.setText("ab");
+        Legunaje1.setText("L = a^n b^m");
         Legunaje1.setToolTipText("");
         Legunaje1.setContentAreaFilled(false);
         Legunaje1.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +80,7 @@ public class inicio extends javax.swing.JFrame {
 
         Lenguaje2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Lenguaje2.setForeground(new java.awt.Color(255, 255, 255));
-        Lenguaje2.setText("abc");
+        Lenguaje2.setText("L = a^n b^m c^p");
         Lenguaje2.setContentAreaFilled(false);
         Lenguaje2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,7 +96,7 @@ public class inicio extends javax.swing.JFrame {
 
         Lenguaje4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Lenguaje4.setForeground(new java.awt.Color(255, 255, 255));
-        Lenguaje4.setText("abcd");
+        Lenguaje4.setText("L = a^n  b^m c^p d^o");
         Lenguaje4.setContentAreaFilled(false);
         Lenguaje4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +112,7 @@ public class inicio extends javax.swing.JFrame {
 
         Teoria.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Teoria.setForeground(new java.awt.Color(255, 255, 255));
-        Teoria.setText("Teoría");
+        Teoria.setText("Documentación");
         Teoria.setContentAreaFilled(false);
         Teoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,31 +127,39 @@ public class inicio extends javax.swing.JFrame {
 
         content.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/teoria1/manual.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/manual.png"))); // NOI18N
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/teoria1/numeros.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/numeros.png"))); // NOI18N
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo_a.png"))); // NOI18N
 
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1)
-                .addContainerGap(28, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(157, 157, 157))
+                .addContainerGap(29, Short.MAX_VALUE)
+                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(contentLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel2))
+                    .addComponent(jLabel4))
+                .addGap(24, 24, 24))
         );
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contentLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel2)
-                .addGap(61, 61, 61)
-                .addComponent(jLabel1)
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addGroup(contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(contentLayout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(contentLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         bg.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 600, 520));
@@ -167,22 +179,29 @@ public class inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Legunaje1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Legunaje1ActionPerformed
-        
+        Lenguaje1 in3 = new Lenguaje1();
+        in3.setVisible(true);
+        this.setVisible(false);  
                 
     }//GEN-LAST:event_Legunaje1ActionPerformed
 
     private void TeoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeoriaActionPerformed
         // TODO add your handling code here:
+        try{
+            Desktop.getDesktop().browse(new URI("https://docs.google.com/document/d/1XfZllxqGOo4Oj6MHzkfKEk-sZZiyaTSmE--ef0vndIQ/edit"));
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_TeoriaActionPerformed
 
     private void Lenguaje2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lenguaje2ActionPerformed
-        Interfaz_1 in2 = new Interfaz_1();
+        Lenguaje2 in2 = new Lenguaje2();
         in2.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_Lenguaje2ActionPerformed
 
     private void Lenguaje4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lenguaje4ActionPerformed
-        Interfaz in = new Interfaz();
+        Lenguaje3 in = new Lenguaje3();
         in.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_Lenguaje4ActionPerformed
@@ -235,6 +254,7 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JPanel content;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel slidepane;
     // End of variables declaration//GEN-END:variables
 }

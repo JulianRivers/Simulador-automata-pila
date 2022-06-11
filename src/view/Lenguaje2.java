@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package teoria1;
+package view;
 
+import Automata.Automata3Var;
 import Automata.AutomataPila;
 import javax.swing.JOptionPane;
 
@@ -12,28 +13,30 @@ import javax.swing.JOptionPane;
  *
  * @author op7in
  */
-public class Interfaz extends javax.swing.JFrame {
+public class Lenguaje2 extends javax.swing.JFrame {
 
     /**
-     * Creates new form Interfaz
+     * Creates new form Lenguaje3
      */
     private char[] sigma;
     private String[] palabras;
-    private AutomataPila ap;
+    private Automata3Var at;
 
-    public Interfaz() {
+    public Lenguaje2() {
 
         initComponents();
         iniciarComponentes();
-        ap = new AutomataPila();
+        at = new Automata3Var();
 
     }
 
     private void iniciarComponentes() {
+        this.setTitle("S_A_P_A");
         alfabeto.setText("");
         cargarPalabrasBtn.setEnabled(false);
         inputPalabras.setEnabled(false);
         outputValidacion.setEnabled(false);
+        this.setLocationRelativeTo(null);
     }
 
     private boolean comprobarEntradaAlfabeto(String alfabeto) {
@@ -43,20 +46,21 @@ public class Interfaz extends javax.swing.JFrame {
         for (int i = 0; i < caracteres.length; i++) {
             System.out.println(caracteres[i]);
         }
-        return alfabeto.length()==7 && !seRepitenCaracteres(caracteres);
+        return alfabeto.length() == 5 && !seRepitenCaracteres(caracteres);
     }
 
-    private boolean seRepitenCaracteres(String[] caracteres){
+    private boolean seRepitenCaracteres(String[] caracteres) {
         for (int i = 0; i < caracteres.length; i++) {
             String car = caracteres[i];
-            for (int j = i+1; j < caracteres.length; j++) {
-                if (car == null ? caracteres[i] == null : car.equals(caracteres[j]) || caracteres[i].length()>1) {
+            for (int j = i + 1; j < caracteres.length; j++) {
+                if (car == null ? caracteres[i] == null : car.equals(caracteres[j]) || caracteres[i].length() > 1) {
                     return true;
                 }
             }
         }
         return false;
     }
+
     private void obtenerAlfabeto() {
         String alfabet = this.alfabeto.getText();
         alfabet = alfabet.replace(",", "");
@@ -65,18 +69,16 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     private void obtenerPalabrasAValidar() {
-   
-            palabras = inputPalabras.getText().split("\n");
 
-            /*Quitamos los espacios de entrada y sallida */
-            for (byte i = (byte) (palabras.length - 1); i >= 0; i--) {
-                palabras[i].replace(" ", "");
-            }
+        palabras = inputPalabras.getText().split("\n");
 
-            JOptionPane.showMessageDialog(null, "¡Palabras cargadas con éxito!", "¡A validar!", JOptionPane.INFORMATION_MESSAGE);
-            outputValidacion.setEnabled(true);
+        /*Quitamos los espacios de entrada y sallida */
+        for (byte i = (byte) (palabras.length - 1); i >= 0; i--) {
+            palabras[i].replace(" ", "");
+        }
 
-    
+        JOptionPane.showMessageDialog(null, "¡Palabras cargadas con éxito!", "¡A validar!", JOptionPane.INFORMATION_MESSAGE);
+        outputValidacion.setEnabled(true);
 
     }
 
@@ -106,11 +108,10 @@ public class Interfaz extends javax.swing.JFrame {
         w = new javax.swing.JLabel();
         y = new javax.swing.JLabel();
         x = new javax.swing.JLabel();
-        z = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         alfabetoBtn = new javax.swing.JButton();
         cargarPalabrasBtn = new javax.swing.JButton();
         inicio = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
@@ -122,8 +123,8 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/teoria1/logo_a.png"))); // NOI18N
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo_a.png"))); // NOI18N
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 90));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
@@ -191,24 +192,16 @@ public class Interfaz extends javax.swing.JFrame {
 
         w.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         w.setText("w");
-        jPanel2.add(w, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 30, 40));
+        jPanel2.add(w, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 20, -1));
 
-        y.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        y.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         y.setText(" y");
-        jPanel2.add(y, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, 40, 40));
+        jPanel2.add(y, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 30, 40));
         y.getAccessibleContext().setAccessibleName("X");
 
         x.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         x.setText(" x");
-        jPanel2.add(x, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 30, 40));
-
-        z.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        z.setText("z");
-        jPanel2.add(z, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 20, 40));
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/teoria1/WhatsApp Image 2022-06-04 at 4.17.32 PM.jpeg"))); // NOI18N
-        jLabel8.setMaximumSize(new java.awt.Dimension(100, 72));
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 390, 60));
+        jPanel2.add(x, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 30, 40));
 
         alfabetoBtn.setText("Validar alfabeto");
         alfabetoBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -234,6 +227,9 @@ public class Interfaz extends javax.swing.JFrame {
         });
         jPanel2.add(inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 120, 30));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lenguaje2_0.png"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 470, 70));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 520));
 
         pack();
@@ -241,12 +237,13 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void cargarPalabrasBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarPalabrasBtnActionPerformed
         // TODO add your handling code here:
+        outputValidacion.setText("");
         obtenerPalabrasAValidar();
         boolean palabraValida = false;
         String mensaje = "";
         for (byte i = 0; i < palabras.length; i++) {
 
-            palabraValida = ap.Verificacion(sigma, palabras[i]);
+            palabraValida = at.verificacion(sigma, palabras[i]);
 
             mensaje = palabraValida ? "Palabra valida\n" : "Palbra no reconocida por el lenguaje\n";
 
@@ -273,8 +270,8 @@ public class Interfaz extends javax.swing.JFrame {
         boolean valido = comprobarEntradaAlfabeto(alfabeto.getText());
 
         if (!valido) {
-            JOptionPane.showMessageDialog(null, "¡El alfabeto debe estar compuesto de 4 caracteres!\n Ingrese el alfabeto con sus terminales separadas por comas", "¡Errore en el alfabeto", JOptionPane.ERROR_MESSAGE);
-        }else{
+            JOptionPane.showMessageDialog(null, "¡El alfabeto debe estar compuesto de 3 caracteres!\n Ingrese el alfabeto con sus terminales separadas por comas", "¡Error en el alfabeto", JOptionPane.ERROR_MESSAGE);
+        } else {
             alfabeto.setEnabled(false);
             inputPalabras.setEnabled(true);
             cargarPalabrasBtn.setEnabled(true);
@@ -282,7 +279,7 @@ public class Interfaz extends javax.swing.JFrame {
             w.setText(String.valueOf(sigma[0]));
             x.setText(String.valueOf(sigma[1]));
             y.setText(String.valueOf(sigma[2]));
-            z.setText(String.valueOf(sigma[3]));
+
         }
     }//GEN-LAST:event_alfabetoBtnActionPerformed
 
@@ -313,20 +310,21 @@ public class Interfaz extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Lenguaje3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Lenguaje3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Lenguaje3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Lenguaje3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Interfaz().setVisible(true);
+                new Lenguaje3().setVisible(true);
             }
         });
     }
@@ -338,11 +336,11 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton cleanBtn;
     private javax.swing.JButton inicio;
     private javax.swing.JTextArea inputPalabras;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel jPanel2;
@@ -353,6 +351,5 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel w;
     private javax.swing.JLabel x;
     private javax.swing.JLabel y;
-    private javax.swing.JLabel z;
     // End of variables declaration//GEN-END:variables
 }
